@@ -21,4 +21,15 @@ final class AuthService {
               }
           }
     }
+    
+    func restorePreviousSignIn(completion: @escaping (Result<GIDGoogleUser, AuthError>) -> Void) {
+        GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+            if let user {
+                completion(.success(user))
+            } else {
+                completion(.failure(AuthError(gidSignInError: error)))
+            }
+
+        }
+    }
 }

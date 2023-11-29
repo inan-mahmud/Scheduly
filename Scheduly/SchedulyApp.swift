@@ -28,21 +28,7 @@ struct SchedulyApp: App {
                 GIDSignIn.sharedInstance.handle(url)
             }
             .onAppear {
-                GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
-                    
-                    if error != nil {
-                        authViewModel.authState = .loggedOut
-                        return
-                    }
-                    
-                    guard let user: GIDGoogleUser = user else {
-                        authViewModel.authState = .loggedOut
-                        return
-                    }
-                    
-                    authViewModel.authState = .loggedIn(user: user)
-
-                }
+                authViewModel.restorePreviousSignIn()
             }
         }
     }

@@ -10,6 +10,8 @@
 		3A5932C42B13BD8B00BA5696 /* ApplicationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5932C32B13BD8B00BA5696 /* ApplicationUtility.swift */; };
 		3A5932C62B13C25A00BA5696 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5932C52B13C25A00BA5696 /* DashboardView.swift */; };
 		3A88B84E2B1751D30055740E /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A88B84D2B1751D30055740E /* AuthService.swift */; };
+		3A88B8502B17824F0055740E /* EventsTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A88B84F2B17824F0055740E /* EventsTypeView.swift */; };
+		3A88B8522B17860C0055740E /* AvailabilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A88B8512B17860C0055740E /* AvailabilityView.swift */; };
 		3A8D67092B13A74300CAC76C /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 3A8D67082B13A74300CAC76C /* GoogleSignIn */; };
 		3A8D670B2B13A74300CAC76C /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3A8D670A2B13A74300CAC76C /* GoogleSignInSwift */; };
 		3AB1BB2B2B15C832009DD150 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1BB2A2B15C832009DD150 /* DashboardViewModel.swift */; };
@@ -30,6 +32,8 @@
 		3A5932C32B13BD8B00BA5696 /* ApplicationUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUtility.swift; sourceTree = "<group>"; };
 		3A5932C52B13C25A00BA5696 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		3A88B84D2B1751D30055740E /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		3A88B84F2B17824F0055740E /* EventsTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTypeView.swift; sourceTree = "<group>"; };
+		3A88B8512B17860C0055740E /* AvailabilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityView.swift; sourceTree = "<group>"; };
 		3A8D67022B13984F00CAC76C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3AB1BB2A2B15C832009DD150 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		3AB1BB2C2B15EF53009DD150 /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 				3AB1BB2C2B15EF53009DD150 /* DateExt.swift */,
 				3AB1BB2E2B15F232009DD150 /* HTTPClient.swift */,
 				3A88B84D2B1751D30055740E /* AuthService.swift */,
+				3A88B84F2B17824F0055740E /* EventsTypeView.swift */,
+				3A88B8512B17860C0055740E /* AvailabilityView.swift */,
 			);
 			path = Scheduly;
 			sourceTree = "<group>";
@@ -195,6 +201,8 @@
 				3A5932C42B13BD8B00BA5696 /* ApplicationUtility.swift in Sources */,
 				3AB1BB2B2B15C832009DD150 /* DashboardViewModel.swift in Sources */,
 				3AB1BB2D2B15EF53009DD150 /* DateExt.swift in Sources */,
+				3A88B8522B17860C0055740E /* AvailabilityView.swift in Sources */,
+				3A88B8502B17824F0055740E /* EventsTypeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

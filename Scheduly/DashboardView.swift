@@ -6,10 +6,24 @@
 //
 
 import SwiftUI
+import GoogleSignIn
+import GoogleSignInSwift
 
 struct DashboardView: View {
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView {
+            EventsTypeView()
+                .tabItem {
+                    Image(systemName: "doc.plaintext")
+                    Text("Event Types")
+                }
+            AvailabilityView()
+                .tabItem {
+                    Image(systemName: "calendar")
+                    Text("Availability")
+                }
+        }
     }
 }
 

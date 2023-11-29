@@ -23,6 +23,17 @@ final class AuthViewModel: ObservableObject {
             }
         }
     }
+    
+    func restorePreviousSignIn() {
+        authService.restorePreviousSignIn { [unowned self] result in
+            switch result {
+            case .success(let user):
+                self.authState = AuthState.loggedIn(user: user)
+            case .failure(_):
+                self.authState = AuthState.loggedOut
+            }
+        }
+    }
 }
 
 
