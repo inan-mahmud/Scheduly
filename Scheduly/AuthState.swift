@@ -18,3 +18,10 @@ enum AuthError : Error {
     case wrongCredentials
     case unknown
 }
+
+
+extension AuthError {
+    init(gidSignInError error: Error?) {
+        self = .unknown
+    }
+}

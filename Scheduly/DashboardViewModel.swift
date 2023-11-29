@@ -14,17 +14,6 @@ import GTMSessionFetcherFull
 
 final class DashboardViewModel: ObservableObject {
     
-    private let httpClient: HTTPClient
-    
-    init() {
-        
-    }
-    
-    private func getData() {
-       
-        
-        httpClient.makeRequest(request: <#T##URLRequest#>, completion: <#T##(Result<(Data, HTTPURLResponse), Error>) -> Void#>)
-        
-    }
+   
 }
 

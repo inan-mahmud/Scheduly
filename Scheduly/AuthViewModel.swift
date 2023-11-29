@@ -6,21 +6,24 @@
 //
 
 import Foundation
-import GoogleSignIn
-import GoogleSignInSwift
 
 final class AuthViewModel: ObservableObject {
     
     @Published var authState: AuthState = .loggedOut
     
+    private let authService = AuthService()
+    
     func signInWithGoogle(completion: @escaping ((Result<AuthState, AuthError>) -> Void)) {
-        GIDSignIn.sharedInstance.signIn(
-          withPresenting: ApplicationUtility.rootViewController) { signInResult, error in
-            guard let result = signInResult else {
-                completion(.failure(AuthError.unknown))
-              return
+        authService.signInWithGoogle { [unowned self] result in
+            switch result {
+            case .success(let signInResult):
+                self.authState = AuthState.loggedIn(user: signInResult.user)
+            case .failure(_):
+                self.authState = AuthState.loggedOut
             }
-              completion(.success(AuthState.loggedIn(user: result.user)))
-          }
+        }
     }
 }
+
+
+
