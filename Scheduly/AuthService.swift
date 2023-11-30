@@ -17,7 +17,7 @@ final class AuthService {
             if let signInResult {
                 completion(.success(signInResult))
             } else {
-                completion(.failure(AuthError(gidSignInError: error)))
+                completion(.failure(.unknown))
               }
           }
     }
@@ -27,7 +27,7 @@ final class AuthService {
             if let user {
                 completion(.success(user))
             } else {
-                completion(.failure(AuthError(gidSignInError: error)))
+                completion(.failure(.tokenExpired))
             }
 
         }

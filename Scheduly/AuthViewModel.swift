@@ -11,26 +11,27 @@ final class AuthViewModel: ObservableObject {
     
     @Published var authState: AuthState = .loggedOut
     
+    
     private let authService = AuthService()
     
     func signInWithGoogle(completion: @escaping ((Result<AuthState, AuthError>) -> Void)) {
-        authService.signInWithGoogle { [unowned self] result in
+        authService.signInWithGoogle { [weak self] result in
             switch result {
             case .success(let signInResult):
-                self.authState = AuthState.loggedIn(user: signInResult.user)
+                self?.authState = AuthState.loggedIn(user: signInResult.user)
             case .failure(_):
-                self.authState = AuthState.loggedOut
+                self?.authState = AuthState.loggedOut
             }
         }
     }
     
     func restorePreviousSignIn() {
-        authService.restorePreviousSignIn { [unowned self] result in
+        authService.restorePreviousSignIn { [weak self] result in
             switch result {
             case .success(let user):
-                self.authState = AuthState.loggedIn(user: user)
+                self?.authState = AuthState.loggedIn(user: user)
             case .failure(_):
-                self.authState = AuthState.loggedOut
+                self?.authState = AuthState.loggedOut
             }
         }
     }

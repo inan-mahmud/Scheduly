@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3A5932C42B13BD8B00BA5696 /* ApplicationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5932C32B13BD8B00BA5696 /* ApplicationUtility.swift */; };
 		3A5932C62B13C25A00BA5696 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5932C52B13C25A00BA5696 /* DashboardView.swift */; };
+		3A5CF0D22B18C265001923CB /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5CF0D12B18C265001923CB /* AuthError.swift */; };
 		3A88B84E2B1751D30055740E /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A88B84D2B1751D30055740E /* AuthService.swift */; };
 		3A88B8502B17824F0055740E /* EventsTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A88B84F2B17824F0055740E /* EventsTypeView.swift */; };
 		3A88B8522B17860C0055740E /* AvailabilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A88B8512B17860C0055740E /* AvailabilityView.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		3A5932C32B13BD8B00BA5696 /* ApplicationUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUtility.swift; sourceTree = "<group>"; };
 		3A5932C52B13C25A00BA5696 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		3A5CF0D12B18C265001923CB /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		3A88B84D2B1751D30055740E /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3A88B84F2B17824F0055740E /* EventsTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTypeView.swift; sourceTree = "<group>"; };
 		3A88B8512B17860C0055740E /* AvailabilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityView.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				3A88B84D2B1751D30055740E /* AuthService.swift */,
 				3A88B84F2B17824F0055740E /* EventsTypeView.swift */,
 				3A88B8512B17860C0055740E /* AvailabilityView.swift */,
+				3A5CF0D12B18C265001923CB /* AuthError.swift */,
 			);
 			path = Scheduly;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				3AC8A90C2B147EC9005A8B02 /* AuthViewModel.swift in Sources */,
 				3AB72F792B1251C4009B1B65 /* SchedulyApp.swift in Sources */,
 				3A88B84E2B1751D30055740E /* AuthService.swift in Sources */,
+				3A5CF0D22B18C265001923CB /* AuthError.swift in Sources */,
 				3AC8A9082B1474C9005A8B02 /* GoogleUser.swift in Sources */,
 				3AB1BB2F2B15F232009DD150 /* HTTPClient.swift in Sources */,
 				3A5932C42B13BD8B00BA5696 /* ApplicationUtility.swift in Sources */,
