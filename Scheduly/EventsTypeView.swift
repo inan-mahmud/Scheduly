@@ -10,6 +10,12 @@ import SwiftUI
 struct EventsTypeView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            .onAppear {
+                EventService().fetchEvents { 
+                    
+                }
+            }
+        
     }
 }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A17212C2B1B928300DD032E /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A17212B2B1B928300DD032E /* Endpoint.swift */; };
+		3A1721322B1BB77B00DD032E /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1721312B1BB77B00DD032E /* EventService.swift */; };
 		3A5932C42B13BD8B00BA5696 /* ApplicationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5932C32B13BD8B00BA5696 /* ApplicationUtility.swift */; };
 		3A5932C62B13C25A00BA5696 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5932C52B13C25A00BA5696 /* DashboardView.swift */; };
 		3A5CF0D22B18C265001923CB /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5CF0D12B18C265001923CB /* AuthError.swift */; };
@@ -24,12 +26,13 @@
 		3AB72F802B1251C7009B1B65 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB72F7F2B1251C7009B1B65 /* Preview Assets.xcassets */; };
 		3AB72F882B12749C009B1B65 /* GoogleAPIClientForRESTCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3AB72F872B12749C009B1B65 /* GoogleAPIClientForRESTCore */; };
 		3AB72F8A2B12749C009B1B65 /* GoogleAPIClientForREST_Calendar in Frameworks */ = {isa = PBXBuildFile; productRef = 3AB72F892B12749C009B1B65 /* GoogleAPIClientForREST_Calendar */; };
-		3AC8A9082B1474C9005A8B02 /* GoogleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC8A9072B1474C9005A8B02 /* GoogleUser.swift */; };
 		3AC8A90A2B147EA0005A8B02 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC8A9092B147EA0005A8B02 /* AuthState.swift */; };
 		3AC8A90C2B147EC9005A8B02 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC8A90B2B147EC9005A8B02 /* AuthViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A17212B2B1B928300DD032E /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		3A1721312B1BB77B00DD032E /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
 		3A5932C32B13BD8B00BA5696 /* ApplicationUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUtility.swift; sourceTree = "<group>"; };
 		3A5932C52B13C25A00BA5696 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		3A5CF0D12B18C265001923CB /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
@@ -45,7 +48,6 @@
 		3AB72F7A2B1251C4009B1B65 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		3AB72F7C2B1251C7009B1B65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AB72F7F2B1251C7009B1B65 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		3AC8A9072B1474C9005A8B02 /* GoogleUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleUser.swift; sourceTree = "<group>"; };
 		3AC8A9092B147EA0005A8B02 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		3AC8A90B2B147EC9005A8B02 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +67,132 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A17211D2B1B289D00DD032E /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				3A17212F2B1BB75000DD032E /* Event */,
+				3A17211E2B1B28A600DD032E /* Auth */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		3A17211E2B1B28A600DD032E /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				3A1721202B1B28C500DD032E /* Domain */,
+				3A1721212B1B28CC00DD032E /* Presentation */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		3A1721202B1B28C500DD032E /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3A1721272B1B295500DD032E /* Services */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		3A1721212B1B28CC00DD032E /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				3A1721242B1B290E00DD032E /* State */,
+				3A1721222B1B28E500DD032E /* Views */,
+				3A1721232B1B28EC00DD032E /* ViewModels */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		3A1721222B1B28E500DD032E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A1721262B1B293000DD032E /* Screens */,
+				3A1721252B1B292400DD032E /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3A1721232B1B28EC00DD032E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3AC8A90B2B147EC9005A8B02 /* AuthViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3A1721242B1B290E00DD032E /* State */ = {
+			isa = PBXGroup;
+			children = (
+				3AC8A9092B147EA0005A8B02 /* AuthState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		3A1721252B1B292400DD032E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		3A1721262B1B293000DD032E /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				3AB72F7A2B1251C4009B1B65 /* AuthView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		3A1721272B1B295500DD032E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3A88B84D2B1751D30055740E /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3A1721282B1B296500DD032E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3A17212A2B1B297700DD032E /* Utils */,
+				3A1721292B1B296D00DD032E /* API */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3A1721292B1B296D00DD032E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				3AB1BB2E2B15F232009DD150 /* HTTPClient.swift */,
+				3A17212B2B1B928300DD032E /* Endpoint.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		3A17212A2B1B297700DD032E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3A5932C32B13BD8B00BA5696 /* ApplicationUtility.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		3A17212F2B1BB75000DD032E /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				3A1721302B1BB75B00DD032E /* Domain */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		3A1721302B1BB75B00DD032E /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3A1721312B1BB77B00DD032E /* EventService.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		3AB72F6C2B1251C4009B1B65 = {
 			isa = PBXGroup;
 			children = (
@@ -84,20 +212,15 @@
 		3AB72F772B1251C4009B1B65 /* Scheduly */ = {
 			isa = PBXGroup;
 			children = (
-				3AC8A9072B1474C9005A8B02 /* GoogleUser.swift */,
+				3A1721282B1B296500DD032E /* Core */,
+				3A17211D2B1B289D00DD032E /* Features */,
 				3A8D67022B13984F00CAC76C /* Info.plist */,
 				3AB72F782B1251C4009B1B65 /* SchedulyApp.swift */,
-				3AB72F7A2B1251C4009B1B65 /* AuthView.swift */,
 				3AB72F7C2B1251C7009B1B65 /* Assets.xcassets */,
 				3AB72F7E2B1251C7009B1B65 /* Preview Content */,
-				3A5932C32B13BD8B00BA5696 /* ApplicationUtility.swift */,
 				3A5932C52B13C25A00BA5696 /* DashboardView.swift */,
-				3AC8A9092B147EA0005A8B02 /* AuthState.swift */,
-				3AC8A90B2B147EC9005A8B02 /* AuthViewModel.swift */,
 				3AB1BB2A2B15C832009DD150 /* DashboardViewModel.swift */,
 				3AB1BB2C2B15EF53009DD150 /* DateExt.swift */,
-				3AB1BB2E2B15F232009DD150 /* HTTPClient.swift */,
-				3A88B84D2B1751D30055740E /* AuthService.swift */,
 				3A88B84F2B17824F0055740E /* EventsTypeView.swift */,
 				3A88B8512B17860C0055740E /* AvailabilityView.swift */,
 				3A5CF0D12B18C265001923CB /* AuthError.swift */,
@@ -193,14 +316,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A17212C2B1B928300DD032E /* Endpoint.swift in Sources */,
 				3AB72F7B2B1251C4009B1B65 /* AuthView.swift in Sources */,
 				3AC8A90A2B147EA0005A8B02 /* AuthState.swift in Sources */,
+				3A1721322B1BB77B00DD032E /* EventService.swift in Sources */,
 				3A5932C62B13C25A00BA5696 /* DashboardView.swift in Sources */,
 				3AC8A90C2B147EC9005A8B02 /* AuthViewModel.swift in Sources */,
 				3AB72F792B1251C4009B1B65 /* SchedulyApp.swift in Sources */,
 				3A88B84E2B1751D30055740E /* AuthService.swift in Sources */,
 				3A5CF0D22B18C265001923CB /* AuthError.swift in Sources */,
-				3AC8A9082B1474C9005A8B02 /* GoogleUser.swift in Sources */,
 				3AB1BB2F2B15F232009DD150 /* HTTPClient.swift in Sources */,
 				3A5932C42B13BD8B00BA5696 /* ApplicationUtility.swift in Sources */,
 				3AB1BB2B2B15C832009DD150 /* DashboardViewModel.swift in Sources */,

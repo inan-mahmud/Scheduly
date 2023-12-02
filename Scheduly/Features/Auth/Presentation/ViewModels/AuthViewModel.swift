@@ -11,7 +11,6 @@ final class AuthViewModel: ObservableObject {
     
     @Published var authState: AuthState = .loggedOut
     
-    
     private let authService = AuthService()
     
     func signInWithGoogle(completion: @escaping ((Result<AuthState, AuthError>) -> Void)) {
