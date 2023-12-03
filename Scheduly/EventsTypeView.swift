@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct EventsTypeView: View {
+    
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
             .onAppear {
-                EventService().fetchEvents { 
-                    
+                EventService().fetchEvents { result in
+                    switch result {
+                    case .success(let event):
+                        print(event.summary)
+                    case .failure(let error):
+                        print("Event Error \(error)")
+                    }
                 }
             }
         

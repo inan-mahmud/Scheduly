@@ -8,8 +8,9 @@
 import Foundation
 
 protocol HTTPClient {
-    func makeRequest(request: URLRequest, completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> Void)
+    func makeRequest(request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void)
 }
+
 
 
 
@@ -19,24 +20,23 @@ extension URLSession: HTTPClient {
     
     struct NoDataError: Error {}
     
-    func makeRequest(request: URLRequest, completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> Void) {
+    func makeRequest(request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) {
         self.dataTask(with: request) { data, response, error in
+            
             if let error {
                 completion(.failure(error))
                 return
             }
             
-            guard let httpResponse = response as? HTTPURLResponse else {
+            guard let response = response as? HTTPURLResponse else {
                 completion(.failure(InvalidHTTPResponseError()))
                 return
             }
-            
             guard let data = data else {
                 completion(.failure(NoDataError()))
                 return
             }
-            
-            completion(.success((data,httpResponse)))
+            completion(.success((data)))
         }.resume()
     }
 }

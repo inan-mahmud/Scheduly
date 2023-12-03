@@ -32,7 +32,7 @@ extension Endpoint {
 
 extension Endpoint {
     static func events(withID id: String) -> Self {
-        Endpoint(path: "calendars/\(id)/events")
+        Endpoint(path: "calendars/\(id)/events",queryItems: [URLQueryItem(name: "key", value: "AIzaSyDntYy6mHV9UH1LTt5B2aQNFrgV_3DTJJA")])
     }
     
     static func event(withCalendarID calendarID: String, withEventID eventID: String) -> Self {

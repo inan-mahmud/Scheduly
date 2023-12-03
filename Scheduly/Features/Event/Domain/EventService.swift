@@ -8,131 +8,45 @@
 import Foundation
 
 class EventService {
-    
-  
-    
-    func fetchEvents(completion: @escaping () -> Void) -> Void {
-        let urlRequest = URLRequest(url: Endpoint.events(withID: "inan.mahmud.dev@gmail.com").url)
+    func fetchEvents(completion: @escaping (Result<Event,Error>) -> Void) -> Void {
         
+        var urlRequest = URLRequest(url: Endpoint.events(withID: "en.bd#holiday@group.v.calendar.google.com").url)
         URLSession.shared.makeRequest(request: urlRequest) { result in
             switch result {
-            case .success(let (data, response)):
+            case .success(let data):
                 do {
                    let event =  try JSONDecoder().decode(Event.self, from: data)
-                    print(event.summary)
+                    completion(.success(event))
                 }catch {
-                    print(error)
+                    completion(.failure(error))
                 }
             case .failure(let error):
-                print(error)
+                completion(.failure(error))
             }
         }
     }
 }
 
 
-
-
-// MARK: - Event
-struct Event: Codable {
+struct Event: Codable{
     let kind: String
-    let etag, summary, description: String
-    let updated, timeZone, accessRole: String
-    let defaultReminders: [DefaultReminder]
-    let nextSyncToken: String
-    let items: [Item]
-}
-
-// MARK: - DefaultReminder
-struct DefaultReminder: Codable {
-    let method: String
-    let minutes: Int
-}
-
-// MARK: - Item
-struct Item: Codable {
-    let kind, etag, id, status: String
-    let htmlLink: String
-    let created, updated, summary: String
-    let creator, organizer: Creator
-    let start, end: End
-    let iCalUID: String
-    let sequence: Int
-    let attendees: [Attendee]
-    let hangoutLink: String?
-    let conferenceData: ConferenceData?
-    let reminders: Reminders
-    let eventType: String
-    let description: String?
-}
-
-// MARK: - Attendee
-struct Attendee: Codable {
-    let email: String
-    let organizer: Bool?
-    let responseStatus: String
-    let attendeeSelf: Bool?
-
-    enum CodingKeys: String, CodingKey {
-        case email, organizer, responseStatus
-        case attendeeSelf = "self"
-    }
-}
-
-// MARK: - ConferenceData
-struct ConferenceData: Codable {
-    let entryPoints: [EntryPoint]
-    let conferenceSolution: ConferenceSolution
-    let conferenceID: String
-
-    enum CodingKeys: String, CodingKey {
-        case entryPoints, conferenceSolution
-        case conferenceID = "conferenceId"
-    }
-}
-
-// MARK: - ConferenceSolution
-struct ConferenceSolution: Codable {
-    let key: Key
-    let name: String
-    let iconURI: String
-
-    enum CodingKeys: String, CodingKey {
-        case key, name
-        case iconURI = "iconUri"
-    }
-}
-
-// MARK: - Key
-struct Key: Codable {
-    let type: String
-}
-
-// MARK: - EntryPoint
-struct EntryPoint: Codable {
-    let entryPointType: String
-    let uri: String
-    let label: String
-}
-
-// MARK: - Creator
-struct Creator: Codable {
-    let email: String
-    let creatorSelf: Bool?
-
-    enum CodingKeys: String, CodingKey {
-        case email
-        case creatorSelf = "self"
-    }
-}
-
-// MARK: - End
-struct End: Codable {
-    let dateTime: Date
+    let etag: String
+    let summary: String
+    let description: String
+    let updated: String
     let timeZone: String
-}
-
-// MARK: - Reminders
-struct Reminders: Codable {
-    let useDefault: Bool
+    let accessRole: String
+    struct DefaultReminders: Codable {
+        let method: String
+        let minutes: Int
+    }
+    let defaultReminders: [DefaultReminders]
+    let nextSyncToken: String
+    struct Item: Codable {
+        let kind: String
+        let etag: String
+        let id: String
+        let status: String
+    }
+    let items: [Item]
 }
