@@ -12,8 +12,6 @@ protocol HTTPClient {
 }
 
 
-
-
 extension URLSession: HTTPClient {
     
     struct InvalidHTTPResponseError: Error {}
@@ -32,6 +30,7 @@ extension URLSession: HTTPClient {
                 completion(.failure(InvalidHTTPResponseError()))
                 return
             }
+            print(response)
             guard let data = data else {
                 completion(.failure(NoDataError()))
                 return

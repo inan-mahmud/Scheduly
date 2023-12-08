@@ -6,47 +6,28 @@
 //
 
 import Foundation
+import GoogleAPIClientForRESTCore
+import GoogleAPIClientForREST_Calendar
+import GoogleSignIn
+import GoogleSignInSwift
 
 class EventService {
-    func fetchEvents(completion: @escaping (Result<Event,Error>) -> Void) -> Void {
+    
+    func fetchEvents(for user: GIDGoogleUser?, completion: (Result<GTLRCalendar_Events,Error>) -> Void) -> Void {
+        guard let user = user else {
+            
+            return
+        }
+        let service = GTLRCalendarService()
+        service.authorizer = user.fetcherAuthorizer
         
-        var urlRequest = URLRequest(url: Endpoint.events(withID: "en.bd#holiday@group.v.calendar.google.com").url)
-        URLSession.shared.makeRequest(request: urlRequest) { result in
-            switch result {
-            case .success(let data):
-                do {
-                   let event =  try JSONDecoder().decode(Event.self, from: data)
-                    completion(.success(event))
-                }catch {
-                    completion(.failure(error))
-                }
-            case .failure(let error):
-                completion(.failure(error))
+        let fetchEventsQuery = GTLRCalendarQuery_EventsList.query(withCalendarId: "inan.mahmud.dev@gmail.com")
+        service.executeQuery(fetchEventsQuery) { (ticket,object,error) in
+            guard let event = object as? GTLRCalendar_Events else{
+                return
             }
+            print(event)
         }
     }
 }
 
-
-struct Event: Codable{
-    let kind: String
-    let etag: String
-    let summary: String
-    let description: String
-    let updated: String
-    let timeZone: String
-    let accessRole: String
-    struct DefaultReminders: Codable {
-        let method: String
-        let minutes: Int
-    }
-    let defaultReminders: [DefaultReminders]
-    let nextSyncToken: String
-    struct Item: Codable {
-        let kind: String
-        let etag: String
-        let id: String
-        let status: String
-    }
-    let items: [Item]
-}

@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import GoogleSignInSwift
+import GoogleSignIn
 
 final class AuthViewModel: ObservableObject {
     
     @Published var authState: AuthState = .loggedOut
+    
+    var user: GIDGoogleUser?
     
     private let authService = AuthService()
     
@@ -18,6 +22,7 @@ final class AuthViewModel: ObservableObject {
             switch result {
             case .success(let signInResult):
                 self?.authState = AuthState.loggedIn(user: signInResult.user)
+                self?.user = signInResult.user
             case .failure(_):
                 self?.authState = AuthState.loggedOut
             }
@@ -29,10 +34,15 @@ final class AuthViewModel: ObservableObject {
             switch result {
             case .success(let user):
                 self?.authState = AuthState.loggedIn(user: user)
+                self?.user = user
             case .failure(_):
                 self?.authState = AuthState.loggedOut
             }
         }
+    }
+    
+    func openURL(url: URL) {
+        authService.openURL(url: url)
     }
 }
 

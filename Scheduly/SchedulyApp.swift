@@ -6,26 +6,24 @@
 //
 
 import SwiftUI
-import GoogleSignIn
-import GoogleSignInSwift
 
 @main
 struct SchedulyApp: App {
     
     @StateObject var authViewModel = AuthViewModel()
-    
+        
     var body: some Scene {
         WindowGroup {
             VStack {
                 switch authViewModel.authState {
                 case .loggedIn:
-                    DashboardView()
+                    DashboardView().environmentObject(authViewModel)
                 case .loggedOut:
                     AuthView(authViewModel: authViewModel)
                 }
             }
             .onOpenURL { url in
-                GIDSignIn.sharedInstance.handle(url)
+                authViewModel.openURL(url: url)
             }
             .onAppear {
                 authViewModel.restorePreviousSignIn()

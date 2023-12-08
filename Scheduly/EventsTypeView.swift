@@ -6,27 +6,26 @@
 //
 
 import SwiftUI
+import GoogleSignIn
+import GoogleSignInSwift
 
 struct EventsTypeView: View {
+    
+    @EnvironmentObject var authViewModel: AuthViewModel
     
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
             .onAppear {
-                EventService().fetchEvents { result in
-                    switch result {
-                    case .success(let event):
-                        print(event.summary)
-                    case .failure(let error):
-                        print("Event Error \(error)")
-                    }
+                EventService().fetchEvents(for: authViewModel.user) { result  in
+                    
                 }
             }
         
     }
 }
 
-struct EventsTypeView_Previews: PreviewProvider {
-    static var previews: some View {
-        EventsTypeView()
-    }
-}
+//struct EventsTypeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EventsTypeView()
+//    }
+//}

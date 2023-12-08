@@ -10,10 +10,12 @@ import GoogleSignIn
 import GoogleSignInSwift
 
 struct DashboardView: View {
-
+    
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
     var body: some View {
         TabView {
-            EventsTypeView()
+            EventsTypeView().environmentObject(authViewModel)
                 .tabItem {
                     Image(systemName: "doc.plaintext")
                     Text("Event Types")
