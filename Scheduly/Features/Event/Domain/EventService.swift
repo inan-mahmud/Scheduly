@@ -11,22 +11,25 @@ import GoogleAPIClientForREST_Calendar
 import GoogleSignIn
 import GoogleSignInSwift
 
+
 class EventService {
     
-    func fetchEvents(for user: GIDGoogleUser?, completion: (Result<GTLRCalendar_Events,Error>) -> Void) -> Void {
-        guard let user = user else {
-            
-            return
-        }
+    func fetchEvents(for user: GIDGoogleUser?, completion: @escaping (Result<GTLRCalendar_Events,Error>) -> Void) -> Void{
+        
+        guard let user = user else { return }
         let service = GTLRCalendarService()
         service.authorizer = user.fetcherAuthorizer
         
-        let fetchEventsQuery = GTLRCalendarQuery_EventsList.query(withCalendarId: "inan.mahmud.dev@gmail.com")
+        guard let profile = user.profile else { return }
+        
+        let fetchEventsQuery = GTLRCalendarQuery_EventsList.query(withCalendarId: profile.email)
+        
         service.executeQuery(fetchEventsQuery) { (ticket,object,error) in
-            guard let event = object as? GTLRCalendar_Events else{
+            guard let event = object as? GTLRCalendar_Events else {
                 return
             }
-            print(event)
+            
+            completion(.success(event))
         }
     }
 }

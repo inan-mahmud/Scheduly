@@ -14,6 +14,7 @@ enum AuthError : Error {
     case unknown
     
     var customDescription: String {
+        
     switch self {
         case .cancelled:
             return " It looks like you canceled the sign-in process. If you wish to sign in, please try again by clicking the sign-in button. If you have any issues or concerns, feel free to contact our support team for assistance."
