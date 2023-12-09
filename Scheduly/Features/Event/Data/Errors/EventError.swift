@@ -16,11 +16,11 @@ enum EventError {
         
         switch self {
         case .userNotFound:
-            return "Session Expired. Please Login Again"
+            return ErrorMessage.userNotFound.rawValue
         case .profileNotFound:
-            return "Session Expired. Please Login Again"
+            return ErrorMessage.userNotFound.rawValue
         case .eventsNotFound:
-            return "You don't have any events"
+            return ErrorMessage.noEvents.rawValue
         }
     }
 }
