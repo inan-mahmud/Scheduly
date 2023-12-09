@@ -28,6 +28,8 @@
 		3AB72F882B12749C009B1B65 /* GoogleAPIClientForRESTCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3AB72F872B12749C009B1B65 /* GoogleAPIClientForRESTCore */; };
 		3AB72F8A2B12749C009B1B65 /* GoogleAPIClientForREST_Calendar in Frameworks */ = {isa = PBXBuildFile; productRef = 3AB72F892B12749C009B1B65 /* GoogleAPIClientForREST_Calendar */; };
 		3ABE59DA2B24815300A40FDF /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABE59D92B24815300A40FDF /* ErrorMessage.swift */; };
+		3ABE59DD2B2498C000A40FDF /* EventsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABE59DC2B2498C000A40FDF /* EventsState.swift */; };
+		3ABE59E12B249B8D00A40FDF /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABE59E02B249B8D00A40FDF /* EventModel.swift */; };
 		3AC8A90A2B147EA0005A8B02 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC8A9092B147EA0005A8B02 /* AuthState.swift */; };
 		3AC8A90C2B147EC9005A8B02 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC8A90B2B147EC9005A8B02 /* AuthViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +54,8 @@
 		3AB72F7C2B1251C7009B1B65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AB72F7F2B1251C7009B1B65 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3ABE59D92B24815300A40FDF /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		3ABE59DC2B2498C000A40FDF /* EventsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsState.swift; sourceTree = "<group>"; };
+		3ABE59E02B249B8D00A40FDF /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		3AC8A9092B147EA0005A8B02 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		3AC8A90B2B147EC9005A8B02 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -228,7 +232,8 @@
 		3A1721302B1BB75B00DD032E /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				3A1721312B1BB77B00DD032E /* EventService.swift */,
+				3ABE59DF2B249B7D00A40FDF /* Model */,
+				3ABE59DE2B249B7000A40FDF /* Service */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 		3A610DDA2B234EC200542D27 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				3ABE59DB2B2498B100A40FDF /* State */,
 				3A610DDC2B234EDF00542D27 /* ViewModels */,
 				3A610DDB2B234ED800542D27 /* Views */,
 			);
@@ -245,6 +251,7 @@
 		3A610DDB2B234ED800542D27 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3A88B84F2B17824F0055740E /* EventsTypeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -284,7 +291,6 @@
 				3AB72F7E2B1251C7009B1B65 /* Preview Content */,
 				3A5932C52B13C25A00BA5696 /* DashboardView.swift */,
 				3AB1BB2C2B15EF53009DD150 /* DateExt.swift */,
-				3A88B84F2B17824F0055740E /* EventsTypeView.swift */,
 				3A88B8512B17860C0055740E /* AvailabilityView.swift */,
 			);
 			path = Scheduly;
@@ -304,6 +310,30 @@
 				3ABE59D92B24815300A40FDF /* ErrorMessage.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		3ABE59DB2B2498B100A40FDF /* State */ = {
+			isa = PBXGroup;
+			children = (
+				3ABE59DC2B2498C000A40FDF /* EventsState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		3ABE59DE2B249B7000A40FDF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3A1721312B1BB77B00DD032E /* EventService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		3ABE59DF2B249B7D00A40FDF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3ABE59E02B249B8D00A40FDF /* EventModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,8 +420,10 @@
 				3ABE59DA2B24815300A40FDF /* ErrorMessage.swift in Sources */,
 				3A17212C2B1B928300DD032E /* Endpoint.swift in Sources */,
 				3AB72F7B2B1251C4009B1B65 /* AuthView.swift in Sources */,
+				3ABE59DD2B2498C000A40FDF /* EventsState.swift in Sources */,
 				3AC8A90A2B147EA0005A8B02 /* AuthState.swift in Sources */,
 				3A1721322B1BB77B00DD032E /* EventService.swift in Sources */,
+				3ABE59E12B249B8D00A40FDF /* EventModel.swift in Sources */,
 				3A5932C62B13C25A00BA5696 /* DashboardView.swift in Sources */,
 				3AC8A90C2B147EC9005A8B02 /* AuthViewModel.swift in Sources */,
 				3A1270F92B23749300B68AB1 /* EventError.swift in Sources */,

@@ -7,20 +7,19 @@
 
 import Foundation
 
-enum EventError {
+enum EventError: Error {
     case userNotFound
     case profileNotFound
     case eventsNotFound
     
     var customDescription: String {
-        
         switch self {
-        case .userNotFound:
-            return ErrorMessage.userNotFound.rawValue
-        case .profileNotFound:
-            return ErrorMessage.userNotFound.rawValue
-        case .eventsNotFound:
-            return ErrorMessage.noEvents.rawValue
+            case .userNotFound:
+                return ErrorMessage.userNotFound.rawValue
+            case .profileNotFound:
+                return ErrorMessage.userNotFound.rawValue
+            case .eventsNotFound:
+                return ErrorMessage.noEvents.rawValue
         }
     }
 }
