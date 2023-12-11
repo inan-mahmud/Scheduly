@@ -28,12 +28,16 @@ struct EventDetailsView: View {
                         .font(.title2)
                         .padding(.top,16)
                         .padding(.leading,16)
-                        .padding(.bottom,0)
+                    
                     List {
                         ForEach(attendees,id: \.self) { attendee in
                             VStack (alignment:.leading) {
                                 Text(attendee.email ?? "")
-                                Text(attendee.responseStatus ?? "Need Action")
+                                if attendee.responseStatus != nil {
+                                    Text(AttendeeStatus.needsAction.rawValue)
+                                }else {
+                                    Text(attendee.getMessage())
+                                }
                             }
                         }
                     }
@@ -51,3 +55,5 @@ struct EventDetailsView_Previews: PreviewProvider {
         EventDetailsView(event:GTLRCalendar_Event())
     }
 }
+
+

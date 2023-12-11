@@ -14,25 +14,32 @@ import GoogleSignInSwift
 
 class EventService {
     
-    func fetchEvents(for user: GIDGoogleUser?, completion: @escaping (Result<[GTLRCalendar_Event],Error>) -> Void) -> Void {
+    func fetchEvents(for user: GIDGoogleUser?, completion: @escaping (Result<[GTLRCalendar_Event],EventError>) -> Void) -> Void {
         
-        guard let user = user else { return }
+        guard let user = user else {
+            completion(.failure(.userNotFound))
+            return
+        }
         let service = GTLRCalendarService()
         service.authorizer = user.fetcherAuthorizer
         
-        guard let profile = user.profile else { return }
+        guard let profile = user.profile else {
+            completion(.failure(.profileNotFound))
+            return
+        }
         
         let fetchEventsQuery = GTLRCalendarQuery_EventsList.query(withCalendarId: profile.email)
         
         service.executeQuery(fetchEventsQuery) { (ticket,object,error) in
             guard let event = object as? GTLRCalendar_Events else {
+                completion(.failure(.eventsNotFound))
                 return
             }
             
             guard let items = event.items else {
+                completion(.failure(.eventsNotFound))
                 return
             }
-            
             completion(.success(items))
         }
     }

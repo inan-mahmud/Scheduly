@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 import GoogleAPIClientForRESTCore
 import GoogleAPIClientForREST_Calendar
 
