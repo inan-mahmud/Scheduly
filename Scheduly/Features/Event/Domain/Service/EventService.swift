@@ -14,7 +14,7 @@ import GoogleSignInSwift
 
 class EventService {
     
-    func fetchEvents(for user: GIDGoogleUser?, completion: @escaping (Result<[GTLRCalendar_Event],Error>) -> Void) -> Void{
+    func fetchEvents(for user: GIDGoogleUser?, completion: @escaping (Result<[GTLRCalendar_Event],Error>) -> Void) -> Void {
         
         guard let user = user else { return }
         let service = GTLRCalendarService()
