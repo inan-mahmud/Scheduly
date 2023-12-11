@@ -19,19 +19,33 @@ struct EventsTypeView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                switch eventsViewModel.eventsState {
-                case .loading:
-                    ProgressView()
-                case .error(let message):
-                    Text(message)
-                case .data(let events):
-                    List {
-                        ForEach(events, id: \.self) { event in
-                            NavigationLink(event.summary ?? "Unknown") {
-                                EventDetailsView(event: event)
+                VStack {
+                    switch eventsViewModel.eventsState {
+                    case .loading:
+                        ProgressView()
+                    case .error(let message):
+                        Text(message)
+                    case .data(let events):
+                        List {
+                            ForEach(events, id: \.self) { event in
+                                NavigationLink(event.summary ?? "Unknown") {
+                                    EventDetailsView(event: event)
+                                }
                             }
                         }
                     }
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        
+                    }) {
+                         Text("Create an Event")
+                           .padding()
+                           .foregroundColor(.white)
+                           .background(.blue)
+                           .cornerRadius(100)
+                       }
                 }
             }.navigationTitle("Events")
         }.onAppear {
