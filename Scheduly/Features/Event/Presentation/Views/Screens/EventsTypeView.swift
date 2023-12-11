@@ -16,6 +16,8 @@ struct EventsTypeView: View {
     
     @StateObject var eventsViewModel = EventsViewModel()
     
+    @State private var showingSheet = false
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -38,7 +40,7 @@ struct EventsTypeView: View {
                     Spacer()
                     
                     Button(action: {
-                        
+                        showingSheet.toggle()
                     }) {
                          Text("Create an Event")
                            .padding()
@@ -46,6 +48,9 @@ struct EventsTypeView: View {
                            .background(.blue)
                            .cornerRadius(100)
                        }
+                    .sheet(isPresented: $showingSheet) {
+                        SheetView()
+                    }
                 }
             }.navigationTitle("Events")
         }.onAppear {
@@ -57,5 +62,19 @@ struct EventsTypeView: View {
 struct EventsTypeView_Previews: PreviewProvider {
     static var previews: some View {
         EventsTypeView()
+    }
+}
+
+
+struct SheetView: View {
+    @Environment(\.dismiss) var dismiss
+
+    var body: some View {
+        Button("Press to dismiss") {
+            dismiss()
+        }
+        .font(.title)
+        .padding()
+        .background(.black)
     }
 }

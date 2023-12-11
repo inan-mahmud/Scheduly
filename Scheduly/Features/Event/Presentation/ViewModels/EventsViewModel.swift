@@ -28,4 +28,8 @@ final class EventsViewModel: ObservableObject {
             }
         }
     }
+    
+    func createEvent(for user: GIDGoogleUser?) -> Void {
+        
+    }
 }
