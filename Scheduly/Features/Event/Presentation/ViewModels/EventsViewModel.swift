@@ -14,9 +14,15 @@ import GoogleSignInSwift
 
 final class EventsViewModel: ObservableObject {
     
-    private let eventsService = EventService()
+    let eventsService:EventService
+    
+    init(service: EventService) {
+        self.eventsService = service
+    }
     
     @Published var eventsState: EventsState = .loading
+    
+    @Published var showSheet: Bool = false
     
     func fetchEvents(for user: GIDGoogleUser?) -> Void {
         eventsService.fetchEvents(for: user) {[weak self] result in
@@ -30,6 +36,6 @@ final class EventsViewModel: ObservableObject {
     }
     
     func createEvent(for user: GIDGoogleUser?) -> Void {
-        
+        eventsService.createEvent(for: user)
     }
 }

@@ -22,6 +22,7 @@
 		3A8F09002B25C14200D0CA19 /* EventsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F08FF2B25C14200D0CA19 /* EventsItemView.swift */; };
 		3A8F09022B25C63400D0CA19 /* EventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F09012B25C63400D0CA19 /* EventDetailsView.swift */; };
 		3A8F09062B271E0A00D0CA19 /* GTLRCalendar_EventAttendee+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8F09052B271E0A00D0CA19 /* GTLRCalendar_EventAttendee+Ext.swift */; };
+		3AA80FB52B2D803C00238BBF /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA80FB42B2D803C00238BBF /* DependencyProvider.swift */; };
 		3AB1BB2D2B15EF53009DD150 /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1BB2C2B15EF53009DD150 /* DateExt.swift */; };
 		3AB1BB2F2B15F232009DD150 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1BB2E2B15F232009DD150 /* HTTPClient.swift */; };
 		3AB72F792B1251C4009B1B65 /* SchedulyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB72F782B1251C4009B1B65 /* SchedulyApp.swift */; };
@@ -52,6 +53,7 @@
 		3A8F08FF2B25C14200D0CA19 /* EventsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsItemView.swift; sourceTree = "<group>"; };
 		3A8F09012B25C63400D0CA19 /* EventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsView.swift; sourceTree = "<group>"; };
 		3A8F09052B271E0A00D0CA19 /* GTLRCalendar_EventAttendee+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GTLRCalendar_EventAttendee+Ext.swift"; sourceTree = "<group>"; };
+		3AA80FB42B2D803C00238BBF /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
 		3AB1BB2C2B15EF53009DD150 /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		3AB1BB2E2B15F232009DD150 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		3AB72F752B1251C4009B1B65 /* Scheduly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scheduly.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,6 +203,7 @@
 		3A1721282B1B296500DD032E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3AA80FB32B2D801600238BBF /* DI */,
 				3ABE59D82B24813F00A40FDF /* Error */,
 				3A17212A2B1B297700DD032E /* Utils */,
 				3A1721292B1B296D00DD032E /* API */,
@@ -295,6 +298,14 @@
 				3A8F09052B271E0A00D0CA19 /* GTLRCalendar_EventAttendee+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3AA80FB32B2D801600238BBF /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				3AA80FB42B2D803C00238BBF /* DependencyProvider.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 		3AB72F6C2B1251C4009B1B65 = {
@@ -454,6 +465,7 @@
 				3A17212C2B1B928300DD032E /* Endpoint.swift in Sources */,
 				3AB72F7B2B1251C4009B1B65 /* AuthView.swift in Sources */,
 				3ABE59DD2B2498C000A40FDF /* EventsState.swift in Sources */,
+				3AA80FB52B2D803C00238BBF /* DependencyProvider.swift in Sources */,
 				3AC8A90A2B147EA0005A8B02 /* AuthState.swift in Sources */,
 				3A1721322B1BB77B00DD032E /* EventService.swift in Sources */,
 				3ABE59E12B249B8D00A40FDF /* EventModel.swift in Sources */,

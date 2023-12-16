@@ -15,7 +15,11 @@ final class AuthViewModel: ObservableObject {
     
     var user: GIDGoogleUser?
     
-    private let authService = AuthService()
+    let authService: AuthService
+    
+    init(service: AuthService) {
+        self.authService = service
+    }
     
     func signInWithGoogle(completion: @escaping ((Result<AuthState, AuthError>) -> Void)) {
         authService.signInWithGoogle { [weak self] result in

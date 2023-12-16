@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct SchedulyApp: App {
     
-    @StateObject var authViewModel = AuthViewModel()
+    @StateObject var authViewModel = DependencyProvider.authViewModel
         
     var body: some Scene {
         WindowGroup {

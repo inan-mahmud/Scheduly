@@ -14,9 +14,8 @@ struct EventsTypeView: View {
     
     @EnvironmentObject var authViewModel: AuthViewModel
     
-    @StateObject var eventsViewModel = EventsViewModel()
+    @StateObject var eventsViewModel = DependencyProvider.eventViewModel
     
-    @State private var showingSheet = false
     
     var body: some View {
         NavigationStack {
@@ -40,7 +39,7 @@ struct EventsTypeView: View {
                     Spacer()
                     
                     Button(action: {
-                        showingSheet.toggle()
+                        eventsViewModel.showSheet.toggle()
                     }) {
                          Text("Create an Event")
                            .padding()
@@ -48,9 +47,10 @@ struct EventsTypeView: View {
                            .background(.blue)
                            .cornerRadius(100)
                        }
-                    .sheet(isPresented: $showingSheet) {
+                    .sheet(isPresented: $eventsViewModel.showSheet) {
                         SheetView()
                     }
+                    
                 }
             }.navigationTitle("Events")
         }.onAppear {
@@ -68,13 +68,35 @@ struct EventsTypeView_Previews: PreviewProvider {
 
 struct SheetView: View {
     @Environment(\.dismiss) var dismiss
+    
+    @EnvironmentObject var eventsViewModel: EventsViewModel
+    
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
+    @State private var date = Date.now
 
     var body: some View {
-        Button("Press to dismiss") {
-            dismiss()
+        ZStack {
+            ScrollView(.vertical) {
+                VStack(alignment:.leading) {
+                    
+                    DatePicker("Event Start Date", selection: $date)
+                        .datePickerStyle(GraphicalDatePickerStyle())
+                        .frame(maxHeight: 200)
+                    
+                    
+                    Button(action: {
+                        dismiss()
+                    })
+                    {
+                        Text("Close")
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(.blue)
+                            .cornerRadius(100)
+                    }
+                }
+            }
         }
-        .font(.title)
-        .padding()
-        .background(.black)
     }
 }

@@ -10,7 +10,6 @@ import GoogleAPIClientForRESTCore
 import GoogleAPIClientForREST_Calendar
 
 struct EventDetailsView: View {
-    
     let event: GTLRCalendar_Event
     @State private var attendees: [GTLRCalendar_EventAttendee] = []
     
